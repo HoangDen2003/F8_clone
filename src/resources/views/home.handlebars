@@ -1,0 +1,35 @@
+<div class="containerF8">
+    <div class="slideShowF8">
+        {{!-- todo: stop --}}
+    </div>
+    <div class="courseF8">
+        <ul class="titleCourse">
+            <li>
+                <a href="#">
+                    Khóa học miễn phí
+                </a>
+            </li>
+            <li>
+                <a href="/learning_path">Xem lộ trình</a>
+                <div class="iconF8">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </li>
+        </ul>
+        <div class="itemCourse">
+
+            {{#each courses}}
+            <div class="itemF8">
+                <a href="/courses/{{this.slug}}">
+                    <div class="imgItem" style="background-image: url({{this.image}});">
+                        {{!-- todo: background-image --}}
+                    </div>
+                    <p class="name">{{this.name}}</p>
+                </a>
+                <p class="accessF8">{{this.access}}</p>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+</div>

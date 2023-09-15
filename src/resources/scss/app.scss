@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// todo start: nav
+.navF8 {
+    width: 100%;
+    max-height: 65px;
+    height: 65px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e8ebed;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+.navItemF8 {
+    align-items: center;
+    display: flex;
+    padding: 5px 10px;
+    flex: 1 1;
+}
+
+.navItemF8:nth-child(2) {
+    justify-content: center;
+}
+
+.navItemF8:nth-child(3) {
+    justify-content: end;
+}
+
+.navItemF8 .itemImg {
+    width: 38px;
+    height: 38px;
+    background-image: url(https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.navItemF8 .itemText {
+    margin-left: 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navItemF8 .input_search {
+    position: relative;
+    width: 420px;
+}
+
+.navItemF8 .input_search .iconF8 {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: 30px;
+    height: 32px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.navItemF8 .input_search input {
+    width: 100%;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    padding: 5px 5px 5px 40px;
+    font-size: 14px;
+}
+
+.navItemF8 .itemText a {
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navItemF8 .bellF8 {
+    font-size: 20px;
+    opacity: 0.7;
+    margin: 0 20px;
+}
+
+.navItemF8 .profile {
+    height: 30px;
+    width: 30px;
+    background-image: url(https://graph.facebook.com/909839233217691/picture?width=400&height=400);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+// todo end: nav
+
+// todo start: content
+
+.content {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content .sideBarContent {
+    position: sticky;
+    top: 65px;
+    width: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .sideBarContent .iconPlus {
+    margin-top: 10px;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    background-color: #1473e6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .sideBarContent .sideList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .sideBarContent .sideList li {
+    list-style: none;
+}
+
+.content .sideBarContent .sideList a {
+    margin-top: 5px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #404040;
+    border-radius: 16px;
+    text-decoration: none;
+}
+
+.content .sideBarContent .sideList a:active {
+    background-color: #e8ebed;
+    color: #1a1a1a;
+}
+
+.content .sideBarContent .sideList a span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+// todo end: content
+
+// todo start: home
+.bodyArea {
+    width: calc(100% - 96px);
+    padding: 0px 30px;
+}
+.courseF8 {
+    width: 100%;
+    max-height: 1100px;
+    padding: 0 30px;
+} 
+
+.courseF8 .titleCourse {
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.courseF8 .titleCourse li {
+    list-style: none;
+}
+
+.courseF8 .titleCourse li:nth-child(1) a {
+    color: #000;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.courseF8 .titleCourse li:nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #f05123;
+}
+
+.courseF8 .titleCourse li:nth-child(2) a {
+    margin-right: 5px;
+    color: #f05123;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.courseF8 .itemCourse {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    height: calc(100% - 50px)
+}
+
+.courseF8 .itemCourse .itemF8 {
+    margin-top: 5px;
+    width: 100%;
+    padding: 0 12px;
+}
+
+.courseF8 .itemCourse .itemF8 a {
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.courseF8 .itemCourse .itemF8 .imgItem {
+    width: 100%;
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.courseF8 .itemCourse .itemF8 .name {
+    margin: 10px 0 0 0;
+}
+
+// todo end: home
+
+// todo start footer
+
+.footerF8 {
+    width: 100%;
+    height: 440px;
+    background-color: #181821;
+    padding: 68px 0 40px 0;
+}
+
+.contentFooter {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.infor {
+    display: grid;
+    grid-template-columns: 26% calc(48% / 3) calc(48% / 3) calc(48% / 3) 26%;
+    height: 235px;
+}
+
+.itemInfor {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.itemInfor .titleInfor {
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.itemInfor .titleInfor p {
+    margin-bottom: 0;
+}
+
+.itemInfor:nth-child(5) .titleInfor {
+    margin-top: 13px;
+    margin-bottom: 19px;
+}
+
+.itemInfor:nth-child(1) .titleInfor .itemImg {
+    margin-right: 5px; 
+    width: 38px;
+    height: 38px;
+    background-image: url(https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.itemInfor .titleInfor p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.itemInfor ul li {
+    list-style: none;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.itemInfor ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #a9b3bb;
+    transition: .3s ease;
+}
+
+.itemInfor ul li a:hover {
+    color: #fff;
+}
+
+// todo: end footer
+
+// todo start learning_path
+
+.learning_path {
+    width: 100%;
+    padding: 8px 44px;
+}
+
+.learning_path .learning_path_top {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.learning_path .learning_path_top h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.learning_path .learning_path_top .learning_path_text {
+    max-width: 840px;
+    padding: 5px 0;
+    font-size: 15px;
+}
+
+.learning_path .learning_path_body {
+    width: 100%;
+}
+
+.learning_path .learning_path_body .learning_path_content {
+    display: flex;
+    justify-content: start;
+    margin-top: 24px;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item {
+    width: 500px;
+    padding: 24px;
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item:nth-child(2) {
+    margin-left: 20px;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail .content_item_text {
+    width: 70%;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail div:nth-child(2) {
+    margin-left: 20px;
+    width: 30%;
+    height: 146px;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail div:nth-child(2) a {
+    margin: auto;
+    width: 112px;
+    height: 112px;
+    display: flex;
+    border: 5px solid #f05123;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail div:nth-child(2) a img {
+    width: 100%;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail .content_item_text a {
+    color: #000;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_detail .content_item_text p {
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_btn {
+    width: 100%;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_btn a {
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 16px;
+    background-color: #f05123;
+    font-size: 14px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.learning_path .learning_path_body .learning_path_content .learning_path_content_item .content_item_btn a:hover {
+    opacity: 0.8;
+}
+
+.learning_path .learning_path_body .learning_path_suggest {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor {
+    width: 400px;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor p {
+    font-size: 14px;
+    margin-top: 14px;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor .suggest_infor_btn {
+    padding-top: 15px;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor a {
+    padding: 10px 16px;
+    border: 2px solid #292929;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #292929;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_infor a:hover {
+    background-color: #292929;
+    color: #fff;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_image {
+    width: 400px;
+}
+
+.learning_path .learning_path_body .learning_path_suggest .suggest_image div {
+    width: 100%;
+    height: 420px;
+    background-image: url(https://fullstack.edu.vn/static/media/fb-group-cards.4bd525b1b8baf7b1e5a2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// todo end learning_path
+
+// todo start show
+
+.courseShow .courseShowContainer {
+    margin-top: 24px;
+    padding: 0 36px 68px;
+    width: 100%;
+    height: 700px;
+    display: flex;
+}
+
+.courseShow .courseShowContainer .courseShowLeft {
+    width: 65%;
+}
+
+.courseShow .courseShowContainer .courseShowLeft .courseShowTop {
+    margin: 10px 0;
+}
+
+.courseShow .courseShowContainer .courseShowLeft .courseShowTop h1 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.courseShow .courseShowContainer .courseShowLeft .courseShowTop .topText {
+    color: rgba(0,0,0,.8);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.courseShow .courseShowContainer .courseShowLeft .courseShowContent {
+    margin-top: 40px;
+}
+
+.courseShow .courseShowContainer .courseShowLeft .courseShowContent h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.courseShow .courseShowContainer .courseShowRight {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.courseShow .courseShowContainer .courseShowRight .showVideo {
+    position: relative;
+    width: 88%;
+    height: 48%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.courseShow .courseShowContainer .courseShowRight .showVideo iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.courseShow .courseShowContainer .courseShowRight h2 {
+    margin-top: 20px;
+    color: #f05123;
+    font-size: 32px;
+    font-weight: 400;
+    opacity: .8;
+}
+
+.courseShow .courseShowContainer .courseShowRight a {
+    margin-top: 10px;
+    padding: 10px 24px;
+    color: #fff;
+    background-color: #f05123;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+.courseShow .courseShowContainer .courseShowRight a:hover {
+    opacity: .8;
+}
+
+.courseShow .courseShowContainer .courseShowRight ul {
+    padding: 24px 0 10px 25px;
+    list-style: none;
+}
+
+.courseShow .courseShowContainer .courseShowRight ul li {
+    display: flex;
+    color: #494949;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.courseShow .courseShowContainer .courseShowRight ul li .icon {
+    margin-right: 15px;
+}
+
+.courseShow .courseShowContainer .courseShowRight ul li span {
+    font-weight: 500;
+}
+
+// todo end show
