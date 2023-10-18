@@ -1,0 +1,41 @@
+<div class="site">
+    <div class="frontEnd">
+        <div class="roadmap">
+            <h1>Lộ trình học Back-end</h1>
+                <div>
+                    <p>Hầu hết các websites hoặc ứng dụng di động đều có 2 phần là Front-end và Back-end. Front-end là phần giao diện người dùng nhìn thấy và có thể tương tác. Back-end là nơi xử lý dữ liệu và lưu trữ. Vì vậy, nhiệm vụ của lập trình viên Back-end là phân tích thiết kế dữ liệu, xử lý logic nghiệp vụ của các chức năng trong ứng dụng.</p>
+                    <p>Tại Việt Nam, <a href="">lương trung bình</a> cho lập trình viên Back-end vào khoảng <b>19.000.000đ</b> / tháng.</p>
+                </div>
+        </div>
+        <h1 class="tt">Khóa Học</h1>
+        <div class="scale">
+            <div class="courses">
+                {{#each collection}}
+                
+                <div class="course">
+                    <div class="flex">
+                        <div class="img_course">
+                            <a href="/courses/{{this.slug}}">
+                                <img src="{{this.image}}" alt="">
+                            </a>
+                        </div>
+                        <div class="details_course">
+                            <h2>
+                                <a href="/courses/{{this.slug}}">
+                                    {{this.name}} <br>
+                                    <span>Miễn phí</span>
+                                </a>
+                            </h2>
+                            <p>{{this.description}}</p>
+                            <a href="/courses/{{this.slug}}" class="btn">
+                                Xem khóa học
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

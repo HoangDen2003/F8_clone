@@ -33,6 +33,51 @@
         const next = document.querySelector(".bodyArea .containerF8 .slideShowF8 .sl .buttons .next");
         const slide = document.querySelector(".slideShowF8 .slides")
         const items = document.querySelectorAll(".slideShowF8 .slides .slideItem")
+        const iconPlus = document.querySelector(".content .sideBarContent .iconPlus")
+        const dropdown_blogs = document.querySelector(".content .sideBarContent .iconPlus .dropdown_blogs")
+        const iconF8 = document.querySelector(".content .sideBarContent .iconPlus .iconF8")
+        const courses = document.querySelectorAll(".navItemF8 .dropSearch .dropSearchDetail .detailSearch .course a")
+        const inputSearch = document.querySelector(".navItemF8 .input_search input")
+        const valueInputSearch = document.querySelector(".navItemF8 .input_search input")
+        const dropSearch = document.querySelector(".navItemF8 .dropSearch")
+        const resultSearch = document.querySelector(".navItemF8 .dropSearch .dropSearchDetail .resultSearch .text span")
+        const body = document.querySelector(".app")
+
+        inputSearch.addEventListener("keyup", function() {
+            resultSearch.innerHTML = this.value
+            if(this.value == '' ) {
+                dropSearch.style.display = 'none'
+            } else {
+                dropSearch.style.display = 'block'
+            }
+            for (var i = 1; i < courses.length + 1; i++ ){
+                const textH7 = document.querySelector(".navItemF8 .dropSearch .dropSearchDetail .detailSearch .course a:nth-child(" + i + ") h7")
+                const tmp = document.querySelector(".navItemF8 .dropSearch .dropSearchDetail .detailSearch .course a:nth-child(" + i + ")")
+                if (this.value.length > 1 && textH7.innerHTML.toUpperCase().indexOf(this.value.toUpperCase()) > -1) {
+                    tmp.style.display = 'flex'
+                } else {
+                    tmp.style.display = 'none'
+                }
+            }
+        })
+
+        {{!-- todo: bắt lỗi sự kiện khi nhấn phím enter --}}
+        inputSearch.addEventListener("keypress", function(e) {
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if (keycode == '13') {
+                e.preventDefault()
+            }
+        })
+
+        var isVisibleBlog = false
+        {{!-- todo: click vào khoảng trắng --}}
+        body.onclick = function(e) {
+            if (e.target != dropSearch && e.target != inputSearch) {
+                dropSearch.style.display = 'none'
+            } else if (e.target == inputSearch && inputSearch.value != '') {
+                dropSearch.style.display = 'block'
+            }
+        }
 
         var active = 0
 
@@ -66,8 +111,27 @@
         }
 
         setInterval( () => {
-            next.click()
+            if (active == 0) {
+                slide.style.left = items[0].offsetLeft + "px";
+            }
+            if (active + 1 > items.length - 1) {
+                active = 0
+            } else { 
+                active += 1
+            }
+            reLoadWeb(active);
         }, 5000)
+
+        {{!-- todo: click visible dropdown_blogs --}}
+        iconF8.addEventListener("click", function () {
+            if (isVisibleBlog == false) {
+                dropdown_blogs.style.display = "block"
+                isVisibleBlog = true
+            } else {
+                dropdown_blogs.style.display = "none"
+                isVisibleBlog = false
+            }
+        })
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>

@@ -1,0 +1,31 @@
+<div class="searchCourses">
+    {{!-- todo: action: submit ở trang nào --}}
+    <form action="" class="inputSearch">
+        <input type="text" name="q" id="" placeholder="Tìm kiếm ...">
+    </form>
+    <div class="resultSearch">
+        <div class="courses">
+            <ul class="courseFunc">
+                <li>
+                    <a class="active" href="">Khóa học</a>
+                </li>
+            </ul>
+            <div class="line"></div>
+            <div class="result">
+
+                {{#each data}}
+                    <div class="itemCourse">
+                        <a href="courses/{{this.slug}}" class="imgItem">
+                            <div style="background-image: url({{this.image}});"></div>
+                        </a>
+                        <div class="intro">
+                            <a href="courses/{{this.slug}}">{{this.name}}</a>
+                            <p>{{this.description}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,15 @@
-const Courses = require("../models/CourseFree");
+const Allcourses = require("../models/AllCourses");
 const { mongooseToObject } = require("../../util/mongoose");
 
 class CoursesController {
   // todo: [GET] /courses/:slug
-  show(req, res) {
-    // todo: tìm kiếm theo field [access: '115.232'], nếu true sẽ trả về document <là csdl có chứa access đó>
-    Courses.findOne({ slug: req.params.slug })
-      // ? convert sang object
+  async show(req, res) {
+    // todo: tìm kiếm theo field [slug], nếu true sẽ trả về document <là csdl có chứa slug đó>
+    // todo: join collections together
+    const course = await Allcourses.findOne({ slug: req.params.slug })
       .lean()
-      .then((course) => {
-        res.render("courses/show", { course });
-      })
-      .catch();
+      .exec();
+    res.render("courses/show", { course });
   }
 }
 
