@@ -1,14 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const siteController = require("../app/controllers/SitesController");
-const route = require("./routes");
+const { isLogged } = require("../middlewares/checkAuth");
+// const route = require("./routes");
 
-router.use("/learning_path", siteController.learning_path);
+router.get("/learning_path", isLogged, siteController.learning_path);
 
-router.use("/search", siteController.search);
+router.get("/search", isLogged, siteController.search);
 
-router.use("/news", siteController.news);
+router.get("/news", isLogged, siteController.news);
 
-router.use("/", siteController.home);
+router.get("/home", isLogged, siteController.home);
+
+router.get("/main", siteController.mainhome);
+
+router.get("/", siteController.mainhome);
 
 module.exports = router;

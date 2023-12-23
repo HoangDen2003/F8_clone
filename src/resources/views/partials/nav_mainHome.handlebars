@@ -1,0 +1,59 @@
+<div class="navF8">
+  <div class="navItemF8">
+    <div class="itemImg">
+      {{!-- todo: background-image --}}
+    </div>
+    <div class="itemText">
+      Học Lập Trình Để Đi Làm
+    </div>
+  </div>
+  <div class="navItemF8">
+    <form method="POST" class="input_search" action="">
+      <input type="text" name="searchF8" id="searchF8" placeholder="Tìm kiếm khóa học, bài viết, video, ...">
+      <div class="iconF8">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </form>
+    <div class="dropSearch">
+      <div class="dropSearchDetail">
+        <div class="resultSearch">
+          <div class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="text">
+            Kết quả cho '<span></span>'
+          </div>
+        </div>
+        <div class="detailSearch">
+          <div class="title">
+            <h6>KHÓA HỌC</h6>
+            <a href="/search">
+              Xem thêm
+            </a>
+          </div>
+          <div class="line"></div>
+          <div class="course">
+            {{#each courses}}
+            <a href="/courses/{{this.slug}}">
+              <div style="background-image: url({{this.image}});">
+                {{!-- bbackground-image --}}
+              </div>
+              <h7 id="h7-{{@index}}">{{this.name}}</h7>
+            </a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="navItemF8">
+
+    <div class="text-end">
+      <a href="/auth/google" type="button" class="btn btn-light me-2" style="border-radius: 999px; padding: 5px 15px">Đăng nhập</a>
+      <a href="/auth/google" type="button" class="btn" style="background: linear-gradient(to right bottom,#ff8f26,#ff5117); border-radius: 999px; padding: 5px 15px; outline: none; color: #fff">Đăng ký</a>
+    </div>
+
+  </div>
+
+</div>

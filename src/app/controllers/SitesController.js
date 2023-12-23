@@ -2,6 +2,19 @@ const Allcourses = require("../models/AllCourses");
 const { multipleMongooseToObject } = require("../../util/mongoose");
 
 class SiteController {
+  async mainhome(req, res) {
+    const courses = await Allcourses.find({}).lean();
+
+    const locals = {
+      title: "main",
+    };
+    res.render("home", {
+      courses,
+      locals,
+      layout: "../layouts/main_home.handlebars",
+    });
+  }
+
   async home(req, res) {
     // var data = await CourseFree.aggregate([
     //   { $unionWith: "frontends" },
