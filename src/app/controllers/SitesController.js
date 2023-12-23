@@ -1,4 +1,5 @@
 const Allcourses = require("../models/AllCourses");
+const User = require("../models/User");
 const { multipleMongooseToObject } = require("../../util/mongoose");
 
 class SiteController {
@@ -20,15 +21,30 @@ class SiteController {
     //   { $unionWith: "frontends" },
     //   { $unionWith: "backends" },
     // ]);
-    Allcourses.find({})
-      .lean()
-      .then((courses) => {
-        res.render("home", { courses });
-        // res.json(courses);
-      })
-      .catch((err) => {
-        res.status(400).json({ err: "ERROR !!" });
+
+    // const user = await User.find({});
+
+    // Allcourses.find({})
+    //   .lean()
+    //   .then((courses) => {
+    //     res.render("home", { user, courses });
+    //     // res.json(courses);
+    //   })
+    //   .catch((err) => {
+    //     res.status(400).json({ err: "ERROR !!" });
+    //   });
+
+    try {
+      const courses = await Allcourses.find({}).lean().exec();
+      const user = await User.findOne({}).lean().exec();
+
+      res.render("home", {
+        courses,
+        user,
       });
+    } catch (error) {
+      res.status(400).json({ error: "ERROR !!" });
+    }
   }
 
   news(req, res) {
@@ -37,7 +53,9 @@ class SiteController {
 
   async learning_path(req, res) {
     const courses = await Allcourses.find({});
-    res.render("learning_path", { courses });
+    res.render("learning_path", {
+      courses,
+    });
   }
 
   async search(req, res) {

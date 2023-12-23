@@ -82,7 +82,9 @@
         </div>
         {{!-- todo: stop --}}
     </div>
+
     <div class="courseF8">
+
         <ul class="titleCourse">
             <li>
                 <a href="#">
@@ -96,25 +98,28 @@
                 </div>
             </li>
         </ul>
-        <div class="itemCourse">
+
+        <div class="row">
 
             {{#each courses}}
-            <div class="itemF8">
-                <a href="/courses/{{this.slug}}">
-                    <div class="imgItem" style="background-image: url({{this.image}});">
-                        {{!-- todo: background-image --}}
+
+            <div class="col-sm-3 mt-4">
+                <div class="card border-0" style="min-height: 210px">
+                    <a href="/courses/{{ this.slug }}">
+                        <img class="card-img-top" src="{{this.image}}" alt="Card image cap" style="border-radius: 16px;">
+                    </a>
+                    <div class="card-body p-0 pe-2 py-2 text-truncate">
+                        <a href="" class="h6 card-title text-decoration-none">{{ this.name }}</a>
+                        <p class="font-weight-light mt-2" style="font-size: 14px;">
+                            <i class="fa-solid fa-users"></i>
+                            {{ this.access }}</p>
                     </div>
-                    <p class="name">{{this.name}}</p>
-                </a>
-                <div class="accessF8">
-                    <div class="icon">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <p>{{this.access}}</p>
                 </div>
             </div>
+
             {{/each}}
 
-        </div>
+         </div>
     </div>
+
 </div>

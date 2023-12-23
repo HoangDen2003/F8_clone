@@ -9,6 +9,7 @@ const Users = new Schema({
   email: { type: String, unique: true },
   image: { type: String },
   password: { type: String },
+  createAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Users", Users);

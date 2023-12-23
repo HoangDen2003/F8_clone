@@ -18,7 +18,7 @@ const MongoStore = require("connect-mongo");
 app.set("trust proxy", 1); // trust first proxy
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: "keyboard cat", // mã hóa cookie của phiên đó
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({

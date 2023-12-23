@@ -56,15 +56,15 @@
 
     <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://graph.facebook.com/909839233217691/picture?width=400&height=400" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="{{user.image}}" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small mt-2" aria-labelledby="dropdownUser1" style="">
             <li>
               <a class="dropdown-item d-flex align-item-center" href="#">
-                <img src="https://graph.facebook.com/909839233217691/picture?width=400&height=400" alt="mdo" width="45" height="45" class="rounded-circle">
+                <img src="{{user.image}}" alt="mdo" width="45" height="45" class="rounded-circle">
                   <p class="fw-normal ps-3 mb-0">
-                    Light weight text. <br>
-                    <i class="opacity-75" style="font-size: 14px">Light weight text.</i>
+                    {{ user.fullName }}<br>
+                    <i class="opacity-75 text-lowercase" style="font-size: 14px">@{{user.first_name}}</i>
                   </p>
               </a>
             </li>
