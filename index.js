@@ -38,12 +38,14 @@ app.use(passport.session());
 // todo: connect database
 db.connect();
 
+// todo các array hay object đều đưa về format của json
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
 
+// ! dùng express để hứng cái json khi get hoặc post
 app.use(express.json());
 
 // todo: để phân phát các tệp tĩnh như hình ảnh, CSS, SASS, javascript dùng static

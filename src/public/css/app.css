@@ -261,7 +261,8 @@
   position: relative;
   width: 100%;
   height: 270px;
-  overflow: hidden; }
+  overflow: hidden;
+  border-radius: 16px; }
 
 .slideShowF8 .sl .buttons {
   padding: 0 3px;

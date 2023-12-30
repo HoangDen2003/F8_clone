@@ -47,6 +47,10 @@ class SiteController {
     }
   }
 
+  async authentication(req, res) {
+    res.render("/authentication");
+  }
+
   news(req, res) {
     res.render("news");
   }

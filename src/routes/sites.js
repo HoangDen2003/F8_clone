@@ -4,6 +4,8 @@ const siteController = require("../app/controllers/SitesController");
 const { isLogged } = require("../middlewares/checkAuth");
 // const route = require("./routes");
 
+router.get("/authentication", siteController.authentication);
+
 router.get("/learning_path", isLogged, siteController.learning_path);
 
 router.get("/search", isLogged, siteController.search);

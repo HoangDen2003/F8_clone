@@ -4,7 +4,7 @@ async function connect() {
   try {
     await mongoose.connect("mongodb://127.0.0.1/F8");
     console.log("Successfully !!");
-  } catch (error) {
+  } catch (error) { 
     console.log("Fail !!");
   }
 }
