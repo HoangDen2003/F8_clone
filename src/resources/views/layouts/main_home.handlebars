@@ -21,6 +21,9 @@
                 {{{body}}}
             </div>
         </div>
+        <div id="id_authModel" class="authModel">
+            {{> authModel}}
+        </div>
 
         {{> footer}}
     </div>
@@ -41,6 +44,17 @@
         const dropSearch = document.querySelector(".navItemF8 .dropSearch")
         const resultSearch = document.querySelector(".navItemF8 .dropSearch .dropSearchDetail .resultSearch .text span")
         const body = document.querySelector(".app")
+        const authModel = document.getElementById("id_authModel")
+        const btnLogin = document.querySelector(".app .navF8 .btn_login")
+
+        var isBtnLogin = false
+        btnLogin.onclick = function() {
+            if (isBtnLogin == false) {
+                authModel.style.display = 'flex'
+            } else {
+                authModel.style.display = 'none'
+            }
+        }
 
         inputSearch.addEventListener("keyup", function() {
             resultSearch.innerHTML = this.value

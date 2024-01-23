@@ -1072,3 +1072,128 @@
 }
 
 // todo: end search
+
+// todo: start authModel
+
+.authModel {
+    align-items: center;
+    display: none;
+    inset: 0;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    // opacity: 0.5;
+}
+
+.authModel .authModelContent {
+    width: 540px;
+    height: 660px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.authModel .authModelContent .btn_close {
+    width: 40px;
+    height: 40px;
+    color: #4b4b4b;
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    border: none;
+}
+
+.authModel .authModelContent .btn_close i {
+    font-size: 35px;
+}
+
+.authModel .authModelContent .infor_auth {
+    margin: 70px 0 0 0;
+    text-align: center;
+
+}
+
+.authModel .authModelContent .infor_auth .img_auth {
+}
+
+.authModel .authModelContent .infor_auth .infor_auth_img img {
+    margin: 10px 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.authModel .authModelContent .infor_auth .infor_auth_img h1 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 8px 30px;
+}
+
+.authModel .authModelContent .infor_auth .infor_auth_img p {
+    font-size: 13px;
+    color: #f33a58;
+    font-weight: normal;
+    padding: 0 90px 0 90px;
+}
+
+.authModel .authModelContent .func_auth {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.authModel .authModelContent .func_auth .btnSign {
+    height: 44px;
+    width: 320px;
+    border-radius: 999px;
+    border: solid 2px #ccc;
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+
+.authModel .authModelContent .func_auth .btnSign img {
+    position: absolute;
+    left: 15px;
+}
+
+.authModel .authModelContent .func_auth .btnSign p {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.authModel .authModelContent .cont_auth {
+    text-align: center;
+    padding: 30px 90px;
+}
+
+.authModel .authModelContent .cont_auth div {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.authModel .authModelContent .cont_auth div a {
+    color: #f05123;
+    text-decoration: none;
+}
+
+.authModel .authModelContent .cont_auth p {
+    margin: 20px 0;
+    font-size: 11px;
+    color: #666;
+}
+
+.authModel .authModelContent .cont_auth p span {
+    text-decoration: underline;
+}
+
+// todo: end authModel

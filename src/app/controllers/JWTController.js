@@ -1,8 +1,17 @@
 const User = require("../models/User");
 const createError = require("http-errors");
-const { userValidation } = require("../../middlewares/validation");
-const { create } = require("connect-mongo");
 const bcrypt = require("bcrypt");
+const { create } = require("connect-mongo");
+const { userValidation } = require("../../middlewares/validation");
+const {
+  signAccessToken,
+  verifyAccessToken,
+  signRefreshToken,
+  verifyRefreshToken,
+} = require("../../middlewares/jwt_service");
+// const { verify } = require("crypto");
+const JWT = require("jsonwebtoken");
+const client = require("../../helpers/connection_redis");
 
 module.exports.register = async (req, res) => {
   try {
@@ -61,7 +70,7 @@ module.exports.login = async (req, res) => {
 
     const errUserValidation = userValidation.validate(userReq);
     const user = await User.findOne({ email: userReq.email });
-    const comparePassword = await bcrypt.compare(
+    const isCheckPassword = await bcrypt.compare(
       userReq.password,
       user.password
     );
@@ -77,20 +86,102 @@ module.exports.login = async (req, res) => {
     }
 
     // todo: check password
-    if (!comparePassword) {
+    if (!isCheckPassword) {
       throw createError.Unauthorized("Mật khẩu không chính xác !!");
     }
 
-    return res.json(user);
+    const accessToken = await signAccessToken(user._id);
+    const refreshToken = await signRefreshToken(user._id);
+    // console.log("refreshtoken id: ", refreshToken);
+
+    return res.json({ user: user.id, accessToken, refreshToken });
   } catch (error) {
     console.log(error);
   }
 };
 
 module.exports.logout = async (req, res) => {
-  res.send("Site Logout");
+  const { refreshToken } = req.body;
+  // console.log(refreshToken);
+  if (!refreshToken) {
+    throw createError.BadRequest();
+  }
+  // todo: xác minh và lấy ra id tương ứng với refreshtoken
+  const payload = await verifyRefreshToken(refreshToken);
+  // console.log(payload);
+
+  // todo: delete ridis
+  client.del(payload.userId, (err, reply) => {
+    if (err) throw createError.InternalServerError();
+    if (payload.userId != reply) throw createError.Unauthorized();
+  });
+  res.json({
+    message: "Đã xóa rồi, vào redis mà kiểm tra",
+  });
 };
 
 module.exports.refresh_token = async (req, res, next) => {
-  res.send("!!!");
+  try {
+    const { refreshToken } = req.body;
+    // console.log(refreshToken);
+    // res.json(refreshToken);
+    if (!refreshToken) throw createError.BadRequest();
+    const payload = await verifyRefreshToken(refreshToken);
+    // console.log(payload.userId);
+    const accessTokenSign = await signAccessToken(payload.userId);
+    const refreshTokenSign = await signRefreshToken(payload.userId);
+    res.json({ accessTokenSign, refreshTokenSign });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.getList = async (req, res) => {
+  // try {
+  //   console.log(req.headers);
+  //   const listUsers = [
+  //     {
+  //       email: "abc123@gmail.com",
+  //     },
+  //     {
+  //       email: "edg@gmail.com",
+  //     },
+  //   ];
+
+  //   if (!req.headers["authorization"]) {
+  //     throw createError.Unauthorized();
+  //   }
+
+  //   const authHeader = req.headers["authorization"];
+  //   // todo: tách chuỗi authHeader bởi dấu cách: Bearer <access_token>
+  //   const bearerToken = authHeader.split(" ");
+  //   const token = bearerToken[1];
+  //   // todo: giải mã cái accesstoken để xác định là admin hay user để có thể phân quyền cho nó
+  //   // secretOrPublicKey = process.env.ACCESS_TOKEN_SECRET
+  //   // JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
+  //   //   if (err) {
+  //   //     throw createError.Unauthorized();
+  //   //   }
+  //   //   // console.log(payload);
+  //   //   req.payload = payload;
+  //   // });
+  //   // res.json({ listUsers });
+
+  //   const { userID } = JWT.verify(token, process.env.ACCESS_TOKEN_SECRET);
+  //   console.log(userID);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
+  // const refreshToken = await signRefreshToken();
+
+  const listUsers = [
+    {
+      email: "abc123@gmail.com",
+    },
+    {
+      email: "edg@gmail.com",
+    },
+  ];
+  res.json({ listUsers });
 };

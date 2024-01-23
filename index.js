@@ -4,6 +4,7 @@ const route = require("./src/routes/routes");
 const db = require("./src/config/database/connectDB");
 // const db_cloud = require("./src/config/database/connectDB_cloud");
 
+const _handlebars = require("handlebars");
 const handlebars = require("express-handlebars");
 const express = require("express");
 const morgan = require("morgan");
@@ -13,7 +14,25 @@ const port = 3000;
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const createError = require("http-errors");
 // const router = require("./src/middlewares/auth");
+
+const client = require("./src/helpers/connection_redis");
+const { error } = require("console");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
+
+// redis
+// client.set("key", "1");
+// const value = client.get("key");
+// value
+//   .then(function (result) {
+//     console.log(result);
+//   })
+//   .catch((err) => {
+//     if (err) throw createError.BadRequest();
+//   });
 
 app.set("trust proxy", 1); // trust first proxy
 app.use(
@@ -53,7 +72,17 @@ app.use(express.static(path.join(__dirname, "src/public")));
 
 app.use(morgan("dev"));
 
-app.engine("handlebars", handlebars.engine());
+app.engine(
+  "handlebars",
+  handlebars.engine({
+    defaultLayout: "main",
+    handlebars: allowInsecurePrototypeAccess(_handlebars),
+  })
+);
+// app.engine('handlebars', exphbs({
+//   defaultLayout: 'home',
+//   handlebars: allowInsecurePrototypeAccess(Handlebars)
+//  }));
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "src/resources/views"));
 
