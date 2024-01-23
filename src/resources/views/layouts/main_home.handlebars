@@ -46,6 +46,28 @@
         const body = document.querySelector(".app")
         const authModel = document.getElementById("id_authModel")
         const btnLogin = document.querySelector(".app .navF8 .btn_login")
+        const btnSign = document.querySelector("#id_func_auth div.btnSign")
+        const btnLoginPrev = document.querySelector("#id_authModel #id_btn_prev")
+        const funcAuth = document.getElementById("id_func_auth")
+        const formAuthLogin = document.getElementById("id_func_form_auth")
+
+        var isVisibleAuth = false
+        btnSign.onclick = function() {
+            if (isVisibleAuth == false) {
+                funcAuth.style.display = 'none'
+                formAuthLogin.style.display = 'block'
+                btnLoginPrev.style.display = 'block'
+                isVisibleAuth = true
+            } 
+        }
+        btnLoginPrev.onclick = function() {
+            if (isVisibleAuth == true) {
+                funcAuth.style.display = 'flex'
+                formAuthLogin.style.display = 'none'
+                btnLoginPrev.style.display = 'none'
+                isVisibleAuth = false
+            }
+        }
 
         var isBtnLogin = false
         btnLogin.onclick = function() {

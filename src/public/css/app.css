@@ -894,10 +894,54 @@
   flex-direction: column;
   position: relative; }
 
+.authModel .authModelContent .btn_prev {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  font-size: 25px;
+  color: #404040;
+  cursor: pointer;
+  display: none; }
+
+.authModel .authModelContent .func_form_auth {
+  display: none;
+  margin: auto;
+  margin-top: -30px;
+  margin-bottom: -20px;
+  width: 470px;
+  padding: 20px 50px; }
+
+.authModel .authModelContent .func_form_auth .form_auth_label p {
+  margin: 10px 0 10px 8px;
+  font-size: 14px;
+  font-weight: 500; }
+
+.authModel .authModelContent .func_form_auth .form_auth_input input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 5px 12px 20px;
+  border-radius: 999px;
+  border: none;
+  outline-color: #38ccbf;
+  background-color: #f1f1f2; }
+
+.authModel .authModelContent .func_form_auth .form_auth_btn {
+  margin-top: 10px;
+  text-align: center; }
+
+.authModel .authModelContent .func_form_auth .btn-submit {
+  width: 100%;
+  padding: 12px 145px;
+  background-color: #1dbfaf;
+  background-image: linear-gradient(70.06deg, #2cccff -5%, #22dfbf 106%);
+  border-radius: 999px;
+  font-size: 16px;
+  color: #fff;
+  border: none; }
+
 .authModel .authModelContent .btn_close {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   color: #4b4b4b;
   position: absolute;
   right: 13px;
@@ -946,7 +990,8 @@
   align-items: center;
   color: #000;
   text-decoration: none;
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
 
 .authModel .authModelContent .func_auth .btnSign img {
   position: absolute;

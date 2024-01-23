@@ -3,6 +3,10 @@
         <i class="fa-solid fa-circle-xmark"></i>
     </a>
 
+    <div id="id_btn_prev" class="btn_prev">
+        <i class="fa-solid fa-angle-left"></i>
+    </div>
+
     <div class="infor_auth">
         <div class="infor_auth_img">
             <a href="" class="img_auth">
@@ -13,7 +17,7 @@
         </div>
     </div>
 
-    <div class="func_auth">
+    <div id="id_func_auth" class="func_auth">
         <div class="btnSign">
             <img src="https://accounts.fullstack.edu.vn/assets/images/signin/personal-18px.svg" alt="">
             <p>Sử dụng email / số điện thoại</p>
@@ -24,10 +28,28 @@
         </a>
     </div>
 
+    <form action="" id="id_func_form_auth" class="func_form_auth">
+        <div class="form_auth_label">
+            <p>Email</p>
+        </div>
+        <div class="form_auth_input">
+            <input type="email" name="email" id="email" placeholder="Địa chỉ email">
+        </div>
+        <div class="form_auth_input">
+            <input type="text" name="password" id="password" placeholder="Mật khẩu">
+        </div>
+        <div class="form_auth_btn">
+            {{!-- <a href="" class="btn-submit">
+                Đăng nhập
+            </a> --}}
+            <input class="btn-submit" type="submit" value="Đăng nhập">
+        </div>
+    </form>
+
     <div class="cont_auth">
         <div>
             Bạn đã có tài khoản?
-            <a href="">Đăng ký</a>
+            <a href="#">Đăng ký</a>
         </div>
         <p>Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với <span>điều khoản sử dụng</span> của chúng tôi.</p>
     </div>
