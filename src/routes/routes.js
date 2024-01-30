@@ -2,7 +2,7 @@ const siteRouter = require("../routes/sites");
 const learningRouter = require("../routes/learning_path");
 const courses = require("../routes/courses");
 const authRouters = require("../middlewares/auth");
-const jwtRouter = require("../routes/jwt")
+const jwtRouter = require("../routes/jwt");
 
 function route(app) {
   app.use("/courses", courses);
@@ -10,8 +10,10 @@ function route(app) {
   app.use("/learning_path", learningRouter);
 
   app.use("/authentication", jwtRouter)
- 
+
   // app.use("/auth/google", authRouters);
+  // app.use("/", jwtRouter);
+
   app.use("/", authRouters);
 
   app.use("/", siteRouter);

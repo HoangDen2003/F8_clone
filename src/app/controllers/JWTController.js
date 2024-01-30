@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Allcourses = require("../models/AllCourses");
 const createError = require("http-errors");
 const bcrypt = require("bcrypt");
 const { create } = require("connect-mongo");
@@ -62,11 +63,15 @@ module.exports.register = async (req, res) => {
 
 module.exports.login = async (req, res) => {
   try {
+    const courses = await Allcourses.find({});
+
     // todo: validate xem người nhập nhập thông tin có đúng kh
     const userReq = {
-      email: req.body.username,
+      email: req.body.email,
       password: req.body.password,
     };
+
+    console.log(userReq);
 
     const errUserValidation = userValidation.validate(userReq);
     const user = await User.findOne({ email: userReq.email });
@@ -94,7 +99,9 @@ module.exports.login = async (req, res) => {
     const refreshToken = await signRefreshToken(user._id);
     // console.log("refreshtoken id: ", refreshToken);
 
-    return res.json({ user: user.id, accessToken, refreshToken });
+    res.render("home", { user, courses, layout: "../layouts/main" });
+
+    // return res.json({ user: user.id, accessToken, refreshToken });
   } catch (error) {
     console.log(error);
   }

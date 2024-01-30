@@ -9,7 +9,7 @@ class CoursesController {
     const course = await Allcourses.findOne({ slug: req.params.slug })
       .lean()
       .exec();
-    res.render("courses/show", { course });
+    res.render("courses/show", { course, layout: "../layouts/main" });
   }
 }
 
