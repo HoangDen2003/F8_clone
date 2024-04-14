@@ -12,7 +12,11 @@ class LearningPathController {
       .lean()
       .exec();
     // res.render("learning_path/front_end", { collection });
-    res.render("learning_path/front_end", { collection, courses });
+    res.render("learning_path/front_end", {
+      collection,
+      courses,
+      layout: "../layouts/main",
+    });
   }
 
   async back_end(req, res) {
